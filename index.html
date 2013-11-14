@@ -1,0 +1,1840 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TPP-Vocab-Template</title>
+<link href="jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+body {
+	background-color: #FFF;
+	font-weight: bold;
+	font-size: large;
+	text-align: center;
+}
+</style>
+<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
+<link href="jQueryAssets/jquery.ui.progressbar.min.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+</style>
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+$(document).on('pageinit', function(event){
+  $('div.ui-page').on("swipeleft", function () {
+    var nextpage = $(this).next('div[data-role="page"]');
+      if (nextpage.length > 0) {
+        $.mobile.changePage(nextpage, "slide", false, true);
+      }
+  });
+
+  $('div.ui-page').on("swiperight", function () {
+    var prevpage = $(this).prev('div[data-role="page"]');
+    if (prevpage.length > 0) {
+      $.mobile.changePage(prevpage, { transition: "slide", reverse: true }, true, true);
+    }
+  });
+});
+<script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script src="jQueryAssets/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script src="jQueryAssets/jquery-ui-1.9.2.progressbar.custom.min.js" type="text/javascript"></script>
+
+<!--><script src="mobilegame.js" type="text/javascript"></script><-->
+
+<script>
+	
+	var g3counter = 0;
+	var g3word ="";
+	var randomNumber = 0;
+	var word = "";
+	var g3score = 0;
+	
+	var pos = new Array ();
+	pos [0] = "verb";
+	pos [1] = "noun";
+	pos [2] = "verb";
+	pos [3] = "noun";
+	pos [4] = "noun";
+	pos [5] = "verb/noun";
+	pos [6] = "verb";
+	pos [7] = "verb";
+	pos [8] = "verb";
+	pos [9] = "verb";
+	pos [10] = "adjective";
+	pos [11] = "verb";
+	pos [12] = "noun";
+	pos [13] = "verb";
+	pos [14] = "noun";
+	pos [15] = "verb";
+	pos [16] = "verb";
+	pos [17] = "verb";
+	pos [18] = "noun";
+	pos [19] = "verb";
+	pos [20] = "noun";
+	
+	var def = new Array ();
+	def [0] = "to save someone or something from danger.";
+	def [1] = "something said or done as a result of something";
+	
+	var xtra = new Array ();
+	xtra [0] = "Rescue can also be used as an adjective: 'I'm part of the rescue team.' It can even be a noun: 'Are you going to help with the rescue?'";
+	xtra [1] = "Related Words: respond (verb)";
+	
+	var newWord = new Array ();
+	newWord [0] = "rescue";
+	newWord [1] = "response";
+	newWord [2] = "respond";
+	newWord [3] = "blow out";
+	newWord [4] = "control room";
+	newWord [5] = "cause";
+	newWord [6] = "investigate";
+	newWord [7] = "inform";
+	newWord [8] = "manage";
+	newWord [9] = "react";
+	newWord [10] = "injured";
+	newWord [11] = "attend to";
+	newWord [12] = "crew";
+	newWord [13] = "scramble";
+	newWord [14] = "pipeline";
+	newWord [15] = "to handle";
+	newWord [16] = "increase";
+	newWord [17] = "patrol";
+	newWord [18] = "premises";
+	newWord [19] = "arrest";
+	newWord [20] = "fence";
+
+var Hint = new Array ();
+	Hint [0] = "The fireman <em> rescued</em> the man from the fire."; //Rescue1
+	Hint [1] = "syn. 'save'";		//Rescue2
+	Hint [2] = "عل";//Rescue 3
+	Hint [3] = "There was a quick _______ to the oil spill."; //Response1
+	Hint [4] = "syn. 'reply'"; //Response2
+	Hint [5] = "Response Arabic Translation"; //Response3
+	Hint [6] = "Abulla will _______ to the question."; //Respond1
+	Hint [7] = "syn. 'answer'"; //Respond2
+	Hint [8] = "Respond Arabic trans"; //Respond3
+	Hint [9] = "The ____ ___ destroyed the refinery."; //Blow out1
+	Hint [10] = "syn. 'explosion'"; //Blow out2
+	Hint [11] = "Blow out Arabic Translation"; //Blow out3
+	Hint [12] = "There are many gauges and computers in the _____ _____."; //Control Room1
+	Hint [13] = "syn. 'headquarters'"; //Control Room2
+	Hint [14] = "Control Room Arabic Translation"; //Control Room3
+	Hint [15] = "A wet floor was the _____ of the accident."; //Cause1
+	Hint [16] = "syn. 'reason for'"; //Cause2
+	Hint [17] = "Cause Arabic trans."; //Cause3
+	Hint [18] = "The security guards will ________ the incident."; //Investigate1
+	Hint [19] = "syn. 'examine'"; //Investigate2
+	Hint [20] = "Investigate Arabic trans."; //Investigate3
+	Hint [21] = "The teachers will _______ the students of the final exam time."; //Inform 1
+	Hint [22] = "syn. 'notify'"; //Inform 2
+	Hint [23] = "Inform Arabic trans."; //Inform 3 
+	Hint [24] = "Massoud is the boss, so he must ______ the company."; //Manage 1
+	Hint [25] = "syn. 'control'"; //Manage 2
+	Hint [26] = "Manage Arabic trans."; //Manage 3 
+	Hint [27] = "A policeman must _____ quickly to a problem."; //React 1
+	Hint [28] = "<br/>syn. 'respond'"; //React 2
+	Hint [29] = "فعل"; //React 3 
+	Hint [30] = "He was hurt on the job. He ______ his arm."; //Injured 1
+	Hint [31] = "syn. 'hurt'"; //Injured 2
+	Hint [32] = "Injured Arabic trans."; //Injured 3 
+	Hint [33] = "The housekeeper's job is to ______ __ cooking and cleaning."; //Attend to 1
+	Hint [34] = "syn. 'do'"; //Attend to 2
+	Hint [35] = "Attend to Arabic trans."; //Attend to 3 
+	Hint [36] = "The sailboat has a six-person _____."; //Crew 1
+	Hint [37] = "syn. 'team'"; //Crew 2
+	Hint [38] = "Crew Arabic trans."; //Crew 3 
+	Hint [39] = "The letters of my name are _______: DBALU. My name is Abdul."; //Scramble 1
+	Hint [40] = "syn. 'mixed'"; //Scramble 2
+	Hint [41] = "Scramble Arabic trans."; //Scramble 3 
+	Hint [42] = "Dolphin Energy is building a _______ from Qatar to the UAE."; //Pipeline 1
+	Hint [43] = "syn. 'tube'"; //Pipeline 2
+	Hint [44] = "Pipline Arabic Translation"; //Pipeline 3 
+	Hint [45] = "We have a new receptionist. His job is to _____ telephone calls."; //To Handle 1
+	Hint [46] = "syn. 'take care of'"; //To Handle 2
+	Hint [47] = "To Handle Arabic Trans."; //To Handle 3 
+	Hint [48] = "I cannot hear the music. Could you _____ the volume?"; //Increase 1
+	Hint [49] = "syn. 'make bigger'"; //Increase 2
+	Hint [50] = "Increase Arabic Trans."; //Increase 3 
+	Hint [51] = "The security guard's job is to ______ the hallways."; //Patrol 1
+	Hint [52] = "syn. 'watch'"; //Patrol 2
+	Hint [53] = "Patrol Arabic trans."; //Patrol 3 
+	Hint [54] = "The fireman ordered everyone to leave the ______."; //Premises 1
+	Hint [55] = "syn. 'place'"; //Premises 2
+	Hint [56] = "Premises Arabic trans."; //Premises 3
+	Hint [57] = "Policemen must ______ thieves."; //Arrest 1
+	Hint [58] = "syn. 'apprehend', 'catch'"; //Arrest 2
+	Hint [59] = "Arrest Arabic Trans."; //Arrest 3
+	Hint [60] = "There is a _____ to keep people out of the refinery."; //Fence 1
+	Hint [61] = "syn. 'wall'"; //Fence 2
+	Hint [62] = "Fence Arabic Trans."; //Fence 3
+	
+</script>
+
+<script>
+function please()
+	{
+	document.getElementById("lex0").innerHTML = newWord[0];	
+	document.getElementById("lex1").innerHTML = newWord[1];
+	document.getElementById("lex2").innerHTML = newWord[2];	
+	document.getElementById("lex3").innerHTML = newWord[3];
+	document.getElementById("lex4").innerHTML = newWord[4];	
+	document.getElementById("lex5").innerHTML = newWord[5];
+	document.getElementById("lex6").innerHTML = newWord[6];	
+	document.getElementById("lex7").innerHTML = newWord[7];
+	document.getElementById("lex8").innerHTML = newWord[8];	
+	document.getElementById("lex9").innerHTML = newWord[9];
+	document.getElementById("lex10").innerHTML = newWord[10];	
+	document.getElementById("lex11").innerHTML = newWord[11];
+	document.getElementById("lex12").innerHTML = newWord[12];	
+	document.getElementById("lex13").innerHTML = newWord[13];
+	document.getElementById("lex14").innerHTML = newWord[14];	
+	document.getElementById("lex15").innerHTML = newWord[15];
+	document.getElementById("lex16").innerHTML = newWord[16];
+	document.getElementById("lex17").innerHTML = newWord[17];
+	document.getElementById("lex18").innerHTML = newWord[18];
+	document.getElementById("lex19").innerHTML = newWord[19];
+	document.getElementById("lex20").innerHTML = newWord[20];
+	
+	document.getElementById("lex0z").innerHTML = newWord[0];
+	document.getElementById("lex1z").innerHTML = newWord[1];
+	
+	document.getElementById("pos0").innerHTML = pos[0];
+	document.getElementById("pos1").innerHTML = pos[1];
+	
+	document.getElementById("def0").innerHTML = def[0];
+	document.getElementById("def1").innerHTML = def[1];
+	
+	document.getElementById("xtra0").innerHTML = xtra[0];
+	document.getElementById("xtra1").innerHTML = xtra[1];
+
+	document.getElementById("lex0a").innerHTML = newWord[0];
+	document.getElementById("lex1a").innerHTML = newWord[1];
+	document.getElementById("lex2a").innerHTML = newWord[2];
+	document.getElementById("lex3a").innerHTML = newWord[3];
+	document.getElementById("lex4a").innerHTML = newWord[4];
+	document.getElementById("lex5a").innerHTML = newWord[5];
+	document.getElementById("lex6a").innerHTML = newWord[6];
+	document.getElementById("lex7a").innerHTML = newWord[7];
+	document.getElementById("lex8a").innerHTML = newWord[8];
+	document.getElementById("lex9a").innerHTML = newWord[9];
+	document.getElementById("lex10a").innerHTML = newWord[10];
+	document.getElementById("lex11a").innerHTML = newWord[11];
+	document.getElementById("lex12a").innerHTML = newWord[12];
+	document.getElementById("lex13a").innerHTML = newWord[13];
+	document.getElementById("lex14a").innerHTML = newWord[14];
+	document.getElementById("lex15a").innerHTML = newWord[15];	
+	document.getElementById("lex16a").innerHTML = newWord[16];
+	document.getElementById("lex17a").innerHTML = newWord[17];
+	document.getElementById("lex18a").innerHTML = newWord[18];
+	document.getElementById("lex19a").innerHTML = newWord[19];
+	document.getElementById("lex20a").innerHTML = newWord[20];
+	
+	document.getElementById("hint0").innerHTML = Hint[0];
+	document.getElementById("hint0a").innerHTML = Hint[1];
+	document.getElementById("hint0b").innerHTML = Hint[2];
+	document.getElementById("hint1").innerHTML = Hint[3];
+	document.getElementById("hint1a").innerHTML = Hint[4];
+	document.getElementById("hint1b").innerHTML = Hint[5];	
+	document.getElementById("hint2").innerHTML = Hint[6];
+	document.getElementById("hint2a").innerHTML = Hint[7];
+	document.getElementById("hint2b").innerHTML = Hint[8];
+	document.getElementById("hint3").innerHTML = Hint[9];
+	document.getElementById("hint3a").innerHTML = Hint[10];
+	document.getElementById("hint3b").innerHTML = Hint[11];
+	document.getElementById("hint4").innerHTML = Hint[12];
+	document.getElementById("hint4a").innerHTML = Hint[13];
+	document.getElementById("hint4b").innerHTML = Hint[14];
+	document.getElementById("hint5").innerHTML = Hint[15];
+	document.getElementById("hint5a").innerHTML = Hint[16];
+	document.getElementById("hint5b").innerHTML = Hint[17];
+	document.getElementById("hint6").innerHTML = Hint[18];
+	document.getElementById("hint6a").innerHTML = Hint[19];
+	document.getElementById("hint6b").innerHTML = Hint[20];
+	document.getElementById("hint7").innerHTML = Hint[21];
+	document.getElementById("hint7a").innerHTML = Hint[22];
+	document.getElementById("hint7b").innerHTML = Hint[23];
+	document.getElementById("hint8").innerHTML = Hint[24];
+	document.getElementById("hint8a").innerHTML = Hint[25];
+	document.getElementById("hint8b").innerHTML = Hint[26];
+	document.getElementById("hint9").innerHTML = Hint[27];
+	document.getElementById("hint9a").innerHTML = Hint[28];
+	document.getElementById("hint9b").innerHTML = Hint[29];
+	document.getElementById("hint10").innerHTML = Hint[30];
+	document.getElementById("hint10a").innerHTML = Hint[31];
+	document.getElementById("hint10b").innerHTML = Hint[32];
+	document.getElementById("hint11").innerHTML = Hint[33];
+	document.getElementById("hint11a").innerHTML = Hint[34];
+	document.getElementById("hint11b").innerHTML = Hint[35];
+	document.getElementById("hint12").innerHTML = Hint[36];
+	document.getElementById("hint12a").innerHTML = Hint[37];
+	document.getElementById("hint12b").innerHTML = Hint[38];
+	document.getElementById("hint13").innerHTML = Hint[39];
+	document.getElementById("hint13a").innerHTML = Hint[40];
+	document.getElementById("hint13b").innerHTML = Hint[41];
+	document.getElementById("hint14").innerHTML = Hint[42];
+	document.getElementById("hint14a").innerHTML = Hint[43];
+	document.getElementById("hint14b").innerHTML = Hint[44];
+	document.getElementById("hint15").innerHTML = Hint[45];
+	document.getElementById("hint15a").innerHTML = Hint[46];
+	document.getElementById("hint15b").innerHTML = Hint[47];
+	document.getElementById("hint16").innerHTML = Hint[48];
+	document.getElementById("hint16a").innerHTML = Hint[49];
+	document.getElementById("hint16b").innerHTML = Hint[50];
+	document.getElementById("hint17").innerHTML = Hint[51];
+	document.getElementById("hint17a").innerHTML = Hint[52];
+	document.getElementById("hint17b").innerHTML = Hint[53];
+	document.getElementById("hint18").innerHTML = Hint[54];
+	document.getElementById("hint18a").innerHTML = Hint[55];
+	document.getElementById("hint18b").innerHTML = Hint[56];
+	document.getElementById("hint19").innerHTML = Hint[57];
+	document.getElementById("hint19a").innerHTML = Hint[58];
+	document.getElementById("hint19b").innerHTML = Hint[59];
+	document.getElementById("hint20").innerHTML = Hint[60];
+	document.getElementById("hint20a").innerHTML = Hint[61];
+	document.getElementById("hint20b").innerHTML = Hint[62];
+	
+	}
+</script>
+
+<script>
+
+function G1input1()
+
+	{
+	var str1 = document.getElementById("game1input").value;
+	var cap1 = str1.charAt(0);
+	
+	if(cap1.match(/^[A-Z]/)) {
+	document.getElementById("G1prompt").innerHTML = "You use uppercase letters only for names of people and places.";
+	}
+	
+	else if (str1==newWord[0]){
+	document.getElementById("G1prompt").innerHTML = "Well-done";
+	document.getElementById("lex0b").innerHTML = newWord[0];
+	document.getElementById("hint0c").innerHTML = Hint[1];	
+	}
+	
+	else if (str1==newWord[1]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex1b").innerHTML = newWord[1];	
+	document.getElementById("hint1c").innerHTML = Hint[4];	
+	}
+	
+	else if (str1==newWord[2]){
+	document.getElementById("G1prompt").innerHTML = "Great!";
+	document.getElementById("lex2b").innerHTML = newWord[2];
+	document.getElementById("hint2c").innerHTML = Hint[7];		
+	}
+	
+	else if (str1==newWord[3]){
+	document.getElementById("G1prompt").innerHTML = "You're doing very well!";
+	document.getElementById("lex3b").innerHTML = newWord[3];
+	document.getElementById("hint3c").innerHTML = Hint[10];		
+	}
+	
+	else if (str1==newWord[4]){
+	document.getElementById("G1prompt").innerHTML = "Nice!";
+	document.getElementById("lex4b").innerHTML = newWord[4];
+	document.getElementById("hint4c").innerHTML = Hint[13];		
+	}
+	
+	else if (str1==newWord[5]){
+	document.getElementById("G1prompt").innerHTML = "Incredible!";
+	document.getElementById("lex5b").innerHTML = newWord[5];	
+	document.getElementById("hint5c").innerHTML = Hint[16];		
+	}
+	
+	else if (str1==newWord[6]){
+	document.getElementById("G1prompt").innerHTML = "Great Work!";
+	document.getElementById("lex6b").innerHTML = newWord[6];
+	document.getElementById("hint6c").innerHTML = Hint[19];		
+	}
+	
+	else if (str1==newWord[7]){
+	document.getElementById("G1prompt").innerHTML = "Impressive!";
+	document.getElementById("lex7b").innerHTML = newWord[7];	
+	document.getElementById("hint7c").innerHTML = Hint[22];	
+	}
+	
+	else if (str1==newWord[8]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex8b").innerHTML = newWord[8];	
+	document.getElementById("hint8c").innerHTML = Hint[25];	
+	}
+	
+	else if (str1==newWord[9]){
+	document.getElementById("G1prompt").innerHTML = "Wonderful!";
+	document.getElementById("lex9b").innerHTML = newWord[9];	
+	document.getElementById("hint9c").innerHTML = Hint[28];	
+	}
+	
+	else if (str1==newWord[10]){
+	document.getElementById("G1prompt").innerHTML = "Amazing!";
+	document.getElementById("lex10b").innerHTML = newWord[10];	
+	document.getElementById("hint10c").innerHTML = Hint[31];	
+	}
+	
+	else if (str1==newWord[11]){
+	document.getElementById("G1prompt").innerHTML = "Super!";
+	document.getElementById("lex11b").innerHTML = newWord[11];	
+	document.getElementById("hint11c").innerHTML = Hint[34];	
+	}
+	
+	else if (str1==newWord[12]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex12b").innerHTML = newWord[12];	
+	document.getElementById("hint12c").innerHTML = Hint[37];	
+	}
+	
+	else if (str1==newWord[13]){
+	document.getElementById("G1prompt").innerHTML = "That's Great!";
+	document.getElementById("lex13b").innerHTML = newWord[13];	
+	document.getElementById("hint13c").innerHTML = Hint[40];	
+	}
+	
+	else if (str1==newWord[14]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex14b").innerHTML = newWord[14];	
+	document.getElementById("hint14c").innerHTML = Hint[43];	
+	}
+	
+	else if (str1==newWord[15]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex15b").innerHTML = newWord[15];	
+	document.getElementById("hint15c").innerHTML = Hint[46];	
+	}
+	
+	else if (str1==newWord[16]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex16b").innerHTML = newWord[16];	
+	document.getElementById("hint16c").innerHTML = Hint[49];	
+	}
+	
+	else if (str1==newWord[17]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex17b").innerHTML = newWord[17];	
+	document.getElementById("hint17c").innerHTML = Hint[52];	
+	}
+	
+	else if (str1==newWord[18]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex18b").innerHTML = newWord[18];	
+	document.getElementById("hint18c").innerHTML = Hint[55];	
+	}
+	
+	else if (str1==newWord[19]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex19b").innerHTML = newWord[19];	
+	document.getElementById("hint19c").innerHTML = Hint[58];	
+	}
+	
+	else if (str1==newWord[20]){
+	document.getElementById("G1prompt").innerHTML = "Fantastic!";
+	document.getElementById("lex20b").innerHTML = newWord[20];	
+	document.getElementById("hint20c").innerHTML = Hint[61];	
+	}
+	
+	else if (str1==""){
+	document.getElementById("G1prompt").innerHTML = "You haven't entered a word.";	
+	}
+	
+	}
+</script>
+
+<script>
+function G1reset()//resets the word and hint lists in Game 1.
+	{
+	
+	document.getElementById("lex0b").innerHTML = "&nbsp;";	
+	document.getElementById("lex1b").innerHTML = "&nbsp;";
+	document.getElementById("lex2b").innerHTML = "&nbsp;";
+	document.getElementById("lex3b").innerHTML = "&nbsp;";
+	document.getElementById("lex4b").innerHTML = "&nbsp;";
+	document.getElementById("lex5b").innerHTML = "&nbsp;";
+	document.getElementById("lex6b").innerHTML = "&nbsp;";
+	document.getElementById("lex7b").innerHTML = "&nbsp;";
+	document.getElementById("lex8b").innerHTML = "&nbsp;";
+	document.getElementById("lex9b").innerHTML = "&nbsp;";
+	document.getElementById("lex10b").innerHTML = "&nbsp;";	
+	document.getElementById("lex11b").innerHTML = "&nbsp;";
+	document.getElementById("lex12b").innerHTML = "&nbsp;";
+	document.getElementById("lex13b").innerHTML = "&nbsp;";
+	document.getElementById("lex14b").innerHTML = "&nbsp;";
+	document.getElementById("lex15b").innerHTML = "&nbsp;";
+	document.getElementById("lex16b").innerHTML = "&nbsp;";
+	document.getElementById("lex17b").innerHTML = "&nbsp;";
+	document.getElementById("lex18b").innerHTML = "&nbsp;";
+	document.getElementById("lex19b").innerHTML = "&nbsp;";
+	document.getElementById("lex20b").innerHTML = "&nbsp;";
+	
+	document.getElementById("hint0c").innerHTML = "&nbsp;";	
+	document.getElementById("hint1c").innerHTML = "&nbsp;";
+	document.getElementById("hint2c").innerHTML = "&nbsp;";
+	document.getElementById("hint3c").innerHTML = "&nbsp;";
+	document.getElementById("hint4c").innerHTML = "&nbsp;";
+	document.getElementById("hint5c").innerHTML = "&nbsp;";
+	document.getElementById("hint6c").innerHTML = "&nbsp;";
+	document.getElementById("hint7c").innerHTML = "&nbsp;";
+	document.getElementById("hint8c").innerHTML = "&nbsp;";
+	document.getElementById("hint9c").innerHTML = "&nbsp;";
+	document.getElementById("hint10c").innerHTML = "&nbsp;";	
+	document.getElementById("hint11c").innerHTML = "&nbsp;";
+	document.getElementById("hint12c").innerHTML = "&nbsp;";
+	document.getElementById("hint13c").innerHTML = "&nbsp;";
+	document.getElementById("hint14c").innerHTML = "&nbsp;";
+	document.getElementById("hint15c").innerHTML = "&nbsp;";
+	document.getElementById("hint16c").innerHTML = "&nbsp;";
+	document.getElementById("hint17c").innerHTML = "&nbsp;";
+	document.getElementById("hint18c").innerHTML = "&nbsp;";
+	document.getElementById("hint19c").innerHTML = "&nbsp;";
+	document.getElementById("hint20c").innerHTML = "&nbsp;";
+	
+	}
+
+</script>
+
+<script>
+
+function randomStart()//this generates 5 random words for the student in Game One
+
+	{
+		
+for (var i=0; i<5; i++)	{
+	var randomNum = Math.floor((Math.random() * newWord.length));
+	var a = "lex" + randomNum + "b";
+	document.getElementById(a).innerHTML = newWord[randomNum];
+	}
+	
+	}
+
+</script>
+
+<script>
+
+function randomStart2()//This generates 5 random hints in Game 1.
+	{
+
+for (var j=0; j<5; j++)    {
+	var randomNum2 = Math.floor((Math.random() * newWord.length));
+	var Numb = (randomNum2*3) + 1;
+	var b = "hint" + Numb + "c";
+	document.getElementById(b).innerHTML = Hint[Numb];
+	
+	}
+
+	}
+</script>
+
+<script>
+
+function scramble()
+	//Word Game 3; This function generates and scrambles a new word.
+	{
+	randomNumber = Math.floor((Math.random() * newWord.length));
+	word = newWord[randomNumber];
+	var wordLength = word.length;
+	var scramble = "";
+	g3counter = 0;
+
+for (var i = 0; i < wordLength; i++) {
+    var charIndex = Math.floor(Math.random() * word.length);
+    scramble += word.charAt(charIndex);
+    word = word.substr(0, charIndex) + word.substr(charIndex + 1);
+	g3word = randomNumber;
+
+	document.getElementById("scrambled").innerHTML = scramble;
+	document.getElementById("G3H1").innerHTML = "";
+	document.getElementById("G3H2").innerHTML = "";
+	document.getElementById("G3H3").innerHTML = "";
+	document.getElementById("G3H4").innerHTML = "";
+	g3input = "";
+	
+	}
+	}
+</script>
+
+<script>
+
+function G3hint1()
+	{
+	
+	document.getElementById("G3H1").innerHTML = Hint[g3word*3];
+	document.getElementById("G3H1").style.textAlign = "center";
+	g3counter++;
+	
+	}
+</script>
+
+<script>
+
+function G3hint2()
+	{
+	
+	document.getElementById("G3H2").innerHTML = Hint[g3word*3+1];
+	g3counter++;
+	
+	}
+</script>
+
+<script>
+
+function G3hint3()
+	{
+	
+	document.getElementById("G3H3").innerHTML = Hint[g3word*3+2];
+	g3counter++;
+	
+	}
+</script>
+
+<script>
+
+function G3hint4()//Word Scramble Hint #4
+	{
+	var str = newWord[randomNumber];
+	var first = str.charAt(0);
+	var last = str.charAt(str.length-1);
+	var n = str.length - 3;
+	var filler = " _ ";
+	
+for (var i = 0; i < n ; i++) {
+	
+	filler = filler + " _ ";
+	document.getElementById("G3H4").innerHTML = first + filler + last;
+    }
+	g3counter++;
+	}
+</script>
+
+<script>
+
+function G3scoring()
+
+	{
+	
+	var a = document.getElementById("game3input").value;
+	var b = document.getElementById("G3score").value = g3score;
+	var c = parseInt(b) ||0;
+	
+if (a == newWord[randomNumber] && g3counter ==0) {
+	var d = document.getElementById("G3score").innerHTML = c + 10;
+	g3score = d;
+	g3counter = 5;
+}
+
+else if (a == newWord[randomNumber] && g3counter ==1) {
+	var e = document.getElementById("G3score").innerHTML = c + 7;
+	g3score = e;
+	g3counter = 5;
+}
+
+else if (a == newWord[randomNumber] && g3counter ==2) {
+	var f = document.getElementById("G3score").innerHTML = c + 5;
+	g3score = f;
+	g3counter = 5;
+}
+
+else if (a == newWord[randomNumber] && g3counter ==3) {
+	var g = document.getElementById("G3score").innerHTML = c + 3;
+	g3score = g;
+	g3counter = 5;
+}
+
+else if (a == newWord[randomNumber] && g3counter ==4) {
+	var h = document.getElementById("G3score").innerHTML = c + 1;
+	g3score = h;
+	g3counter = 5;
+}
+	}
+	
+</script>
+
+
+</head> 
+<body bgcolor="#FFFFFF" onload="please()"> 
+
+<div data-role="page" id="page">
+	<div data-role="header" data-theme="a">
+		<h1 align="center">TPP-GL-106</h1>
+	</div>
+	<div data-role="content" data-theme="d">
+      <br/>
+      <div align="center">
+        <blockquote>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="CNA-Qcolour.png" alt="logo" width="300" height="400">
+            <br/>
+            <br/>
+            <br/>
+
+        </blockquote>
+      </div>
+      <ul data-count-theme="b" data-role="listview">
+	    <li>
+	      <div class="menu" align="center"><a href="#page2">Review</a> </div>
+	    </li>
+        <li>
+          <div class="menu" align="center"><a href="#page24">Games</a> </div>
+        </li>
+        <li>
+          <div class="menu" align="center"><a href="#page0a" data-rel="dialog">Share this App!</a> </div>
+        </li>
+	  </ul>		
+  </div>
+	<div data-role="footer">
+		<h4></h4>
+	</div>
+</div>
+
+<div data-role="page" id="page0a" data-theme="d">
+<div data-role="header">
+   <br/>
+   <br/>
+   <br/>
+  <span>Scan this to download your own app!</span>
+   <br/>
+   <br/>
+   <br/>
+  <img src="chart.png" width="232" height="232" alt="qrcode">
+  <br/>
+   <br/>
+   <br/>
+   <br/>
+</div>
+</div>
+
+<div id="page2" data-role="page" data-theme="b">
+	<div data-role="header" data-theme="a">
+    	<a href="#page" data-role="button" data-icon="home">Home</a>
+		<h1>Words to Know</h1>
+        <a href="#" data-role="button" data-icon="search">Search</a>
+	</div>
+	<div data-role="content">	
+		<ul data-role="listview" data-theme="b">
+			<li><a href="#page3" id="lex0"></a></li>
+            <li><a href="#page4" id="lex1"></a></li>
+            <li><a href="#page5" id="lex2"></a></li>
+            <li><a href="#page6" id="lex3"></a></li>
+            <li><a href="#page7" id="lex4"></a></li>
+            <li><a href="#page8" id="lex5"></a></li>
+            <li><a href="#page9" id="lex6"></a></li>
+            <li><a href="#page10" id="lex7"></a></li>
+            <li><a href="#page11" id="lex8"></a></li>
+            <li><a href="#page12" id="lex9"></a></li>
+            <li><a href="#page13" id="lex10"></a></li>
+            <li><a href="#page14" id="lex11"></a></li>
+            <li><a href="#page15" id="lex12"></a></li>
+            <li><a href="#page16" id="lex13"></a></li>
+            <li><a href="#page17" id="lex14"></a></li>
+            <li><a href="#page18" id="lex15"></a></li>
+            <li><a href="#page19" id="lex16"></a></li>
+            <li><a href="#page20" id="lex17"></a></li>
+            <li><a href="#page21" id="lex18"></a></li>
+            <li><a href="#page22" id="lex19"></a></li>
+            <li><a href="#page23" id="lex20"></a></li>
+            <li><a href="#page24" id="lex21"></a></li>
+            
+		</ul>	
+	</div>
+	<div data-role="footer">
+		<h4><a href="#page">Main Menu</a></h4>
+	</div>
+</div>
+
+<div data-role="page" id="page3" data-theme="c">
+  <div data-role="header">
+    <h1>TPP-GL-106 Unit 6</h1>
+  </div>
+  <div data-role="content">
+  	<span id="lex0a" style="font-size: x-large"></span><br/><br/>
+  	<span id="hint0"></span>
+    <br/>
+    <br/>
+    <span id="hint0a"></span>
+    <br/>
+    <br/>
+    <span class="translation" id="hint0b" style="font-size: xx-large"></span>
+    <br/>
+    <br/>
+    <a href="#page3a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  </div>
+  	
+  <img src="0.jpg" width="270" height="282"  alt="pic1"/>
+<div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page3a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex0z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos0" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def0" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra0" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page4">
+  <div data-role="header">
+    <h1 id="lex1a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint1"></span>
+    <br/>
+    <br/>
+    <span id="hint1a"></span>
+    <br/>
+    <br/>
+    <span class="translation" id="hint1b" style="font-size: xx-large;"></span>
+  </div>
+  <a href="#page4a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page4a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex1z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos1" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def1" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra1" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+  	<span id="extra0"></span>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page5">
+  <div data-role="header">
+    <h1 id="lex2a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint2"></span>
+    <br/>
+    <br/>
+    <span id="hint2a"></span>
+    <br/>
+    <br/>
+    <span id="hint2b" class="translation"></span>
+  </div>
+   <a href="#page5a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page5a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex2z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos2" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def2" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra2" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page6">
+  <div data-role="header">
+    <h1 id="lex3a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint3"></span>
+    <br/>
+    <br/>
+    <span id="hint3a"></span>
+    <br/>
+    <br/>
+    <span id="hint3b" class="translation"></span>
+  </div>
+   <a href="#page6a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page6a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex3z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos3" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def3" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra3" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page7">
+  <div data-role="header">
+    <h1 id="lex4a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint4"></span>
+    <br/>
+    <br/>
+    <span id="hint4a"></span>
+    <br/>
+    <br/>
+    <span id="hint4b" class="translation"></span>
+  </div>
+  <a href="#page7a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page7a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex4z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos4" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def4" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra4" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page8">
+  <div data-role="header">
+    <h1 id="lex5a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint5"></span>
+    <br/>
+    <br/>
+    <span id="hint5a"></span>
+    <br/>
+    <br/>
+    <span id="hint5b" class="translation"></span>
+  </div>
+   <a href="#page8a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page8a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex5z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos5" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def5" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra5" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page9">
+  <div data-role="header">
+    <h1 id="lex6a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint6"></span>
+    <br/>
+    <br/>
+    <span id="hint6a"></span>
+    <br/>
+    <br/>
+    <span id="hint6b" class="translation"></span>
+  </div>
+   <a href="#page9a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page9a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex6z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos6" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def6" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra6" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page10">
+  <div data-role="header">
+    <h1 id="lex7a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint7"></span>
+    <br/>
+    <br/>
+    <span id="hint7a"></span>
+    <br/>
+    <br/>
+    <span id="hint7b" class="translation"></span>
+  </div>
+   <a href="#page10a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page10a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex7z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos7" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def7" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra7" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page11">
+  <div data-role="header">
+    <h1 id="lex8a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint8"></span>
+    <br/>
+    <br/>
+    <span id="hint8a"></span>
+    <br/>
+    <br/>
+    <span id="hint8b" class="translation"></span>
+  </div>
+  <a href="#page11a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page11a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex8z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos8" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def8" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra8" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page12">
+  <div data-role="header">
+    <h1 id="lex9a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint9"></span>
+    <br/>
+    <br/>
+    <span id="hint9a"></span>
+    <br/>
+    <br/>
+    <span id="hint9b" class="translation"></span>
+  </div>
+  <a href="#page12a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page12a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex9z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos9" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def9" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra9" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page13">
+  <div data-role="header">
+    <h1 id="lex10a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint10"></span>
+    <br/>
+    <br/>
+    <span id="hint10a"></span>
+    <br/>
+    <br/>
+    <span id="hint10b" class="translation"></span>
+  </div>
+  <a href="#page13a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page13a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex10z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos10" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def10" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra10" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page14">
+  <div data-role="header">
+    <h1 id="lex11a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint11"></span>
+    <br/>
+    <br/>
+    <span id="hint11a"></span>
+    <br/>
+    <br/>
+    <span id="hint11b" class="translation"></span>
+  </div>
+  <a href="#page14a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page14a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex11z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos11" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def11" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra11" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page15">
+  <div data-role="header">
+    <h1 id="lex12a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint12"></span>
+    <br/>
+    <br/>
+    <span id="hint12a"></span>
+    <br/>
+    <br/>
+    <span id="hint12b" class="translation"></span>
+  </div>
+  <a href="#page15a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page15a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex12z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos12" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def12" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra12" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page16">
+  <div data-role="header">
+    <h1 id="lex13a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint13"></span>
+    <br/>
+    <br/>
+    <span id="hint13a"></span>
+    <br/>
+    <br/>
+    <span id="hint13b" class="translation"></span>
+  </div>
+  <a href="#page16a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page16a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex13z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos13" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def13" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra13" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page17">
+  <div data-role="header">
+    <h1 id="lex14a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint14"></span>
+    <br/>
+    <br/>
+    <span id="hint14a"></span>
+    <br/>
+    <br/>
+    <span id="hint14b" class="translation"></span>
+  </div>
+  <a href="#page17a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page17a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex14z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos14" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def14" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra14" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page18">
+  <div data-role="header">
+    <h1 id="lex15a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint15"></span>
+    <br/>
+    <br/>
+    <span id="hint15a"></span>
+    <br/>
+    <br/>
+    <span id="hint15b" class="translation"></span>
+  </div>
+  <a href="#page18a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page18a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex15z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos15" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def15" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra15" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page19">
+  <div data-role="header">
+    <h1 id="lex16a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint16"></span>
+    <br/>
+    <br/>
+    <span id="hint16a"></span>
+    <br/>
+    <br/>
+    <span id="hint16b" class="translation"></span>
+  </div>
+  <a href="#page9a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page19a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex16z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos16" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def16" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra16" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page20">
+  <div data-role="header">
+    <h1 id="lex17a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint17"></span>
+    <br/>
+    <br/>
+    <span id="hint17a"></span>
+    <br/>
+    <br/>
+    <span id="hint17b" class="translation"></span>
+  </div>
+  <a href="#page20a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page20a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex17z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos17" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def17" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra17" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page21">
+  <div data-role="header">
+    <h1 id="lex18a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint18"></span>
+    <br/>
+    <br/>
+    <span id="hint18a"></span>
+    <br/>
+    <br/>
+    <span id="hint18b" class="translation"></span>
+  </div>
+  <a href="#page21a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page21a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex18z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos18" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def18" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra18" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page22">
+  <div data-role="header">
+    <h1 id="lex19a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint19"></span>
+    <br/>
+    <br/>
+    <span id="hint19a"></span>
+    <br/>
+    <br/>
+    <span id="hint19b" class="translation"></span>
+    <br/>
+    <a href="#page22a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+    <br/>
+  <img src="../index_Resources/arrest.jpg" width="360" height="470"  alt=""/> </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page22a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex19z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos19" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def19" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra19" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page23">
+  <div data-role="header">
+    <h1 id="lex20a">Header</h1>
+  </div>
+  <div data-role="content">
+  	<span id="hint20"></span>
+    <br/>
+    <br/>
+    <span id="hint20a"></span>
+    <br/>
+    <br/>
+    <span id="hint20b" class="translation"></span>
+  </div>
+  <a href="#page23a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page23a" data-theme="d">
+  <div data-role="header">
+    <h1 id="lex20z"></h1>
+  </div>
+  <div data-role="content"><br/>
+  	<div align="left"><span><b>part of speech:</b></span>
+  	  <span id="pos20" font-style: italic;"></span><br/><br/>
+  	  <span><b>definition:</b></span><br/>
+	<p id="def20" style="text-align: center; font-style: italic;"></p>
+    <br/>
+    <span><b>other information:</b></span>
+    <p id="xtra20" style="text-align: center; font-style: italic;">extra will go here</p>
+    </div>
+    <br/>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">back</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page24">
+  <div data-role="header">
+    <h1>Play Time</h1>
+  </div>
+  <div data-role="content">
+  	<ul data-role="listview" data-theme="b">
+  		<li><a href="#page25">Word Finder</a></li>
+    	<li><a href="#page27">Game 2</a></li>
+       <li><a href="#page29">Scrambler</a></li>
+   	</ul>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page">Main Menu</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page25">
+  <div data-role="header">
+    <h1>Play Time</h1>
+  </div>
+  <div data-role="content">
+    <p align="center">&nbsp;&nbsp;Word Finder Rules:
+    </p>
+   	<p align="justify">&bull;&nbsp; You have one word when the game begins.<br/><br/>
+      &bull;&nbsp;&nbsp;Add to your list by getting words from other students.<br/><br/>
+      &bull;&nbsp;&nbsp;"May I have one of your words please?"<br/><br/>
+      &bull;&nbsp; The other student <em>must</em> say one word. <br/><br/>
+      &bull;&nbsp;&nbsp;You may also ask for the spelling.<br/><br/>
+      &bull;&nbsp;&nbsp;Add the new word in the text box and touch <b>enter</b>.<br/><br/>
+      &bull;&nbsp;&nbsp;The first person to enter all the words wins!!!<br/><br/>
+    </p>
+  	<ul data-role="listview" data-theme="b">
+	  <li><a href="#page26" onClick="randomStart();randomStart2();">Start Game</a></li>
+   	</ul>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page">Main Menu</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page26">
+  <div data-role="header">
+    <h1>Word Finder</h1>
+  </div>
+  <div data-role="content" data-theme="d">
+    
+      <div align="center">
+        <table width="244" border="1" align="center" cellpadding="1">
+          <tr>
+            <th scope="col">Word</th>
+            <th scope="col">Hint</th>
+          </tr>
+          <tr>
+            <td id="lex0b" style="text-align: center">&nbsp;</td>
+            <td id="hint1c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex1b" style="text-align: center">&nbsp;</td>
+            <td id="hint4c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex2b" style="text-align: center">&nbsp;</td>
+            <td id="hint7c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex3b" style="text-align: center">&nbsp;</td>
+            <td id="hint10c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex4b" style="text-align: center">&nbsp;</td>
+            <td id="hint13c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex5b" style="text-align: center">&nbsp;</td>
+            <td id="hint5c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex6b" style="text-align: center">&nbsp;</td>
+            <td id="hint16c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex7b" style="text-align: center">&nbsp;</td>
+            <td id="hint19c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+         	 <td id="lex8b" style="text-align: center">&nbsp;</td>
+            <td id="hint22c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex9b" style="text-align: center">&nbsp;</td>
+            <td id="hint25c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex10b" style="text-align: center">&nbsp;</td>
+            <td id="hint28c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex11b" style="text-align: center">&nbsp;</td>
+            <td id="hint31c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex12b" style="text-align: center">&nbsp;</td>
+            <td id="hint34c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex13b" style="text-align: center">&nbsp;</td>
+            <td id="hint37c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex14b" style="text-align: center">&nbsp;</td>
+            <td id="hint40c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex15b" style="text-align: center">&nbsp;</td>
+            <td id="hint43c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex16b" style="text-align: center">&nbsp;</td>
+            <td id="hint46c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex17b" style="text-align: center">&nbsp;</td>
+            <td id="hint49c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex18b" style="text-align: center">&nbsp;</td>
+            <td id="hint52c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex19b" style="text-align: center">&nbsp;</td>
+            <td id="hint55c" style="text-align: center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td id="lex20b" style="text-align: center">&nbsp;</td>
+            <td id="hint58c" style="text-align: center">&nbsp;</td>
+          </tr>
+        </table>
+  
+  	</div>
+	 <div align="center"><span id="G1prompt">&nbsp;</span>
+  	  <input id="game1input"></input>
+  	</div>
+  
+  	<button onClick="G1input1()" data-inline=true>Word</button>
+    <button onClick="G1input2()" data-inline=true>Synonym</button>
+    </div>
+  
+  <div data-role="footer">
+    <h4><a href="#page" onClick="G1reset();">Main Menu</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page27">
+  <div data-role="header">
+    <h1>Game two</h1>
+  </div>
+  <div data-role="content">
+    <p align="center">&nbsp;&nbsp;Word Finder Rules:
+    </p>
+   	<p align="justify">&bull;&nbsp;You have one word when the game begins.<br/><br/>
+      &bull;&nbsp;&nbsp;Add to your list by getting words from other students.<br/><br/>
+      &bull;&nbsp;&nbsp;"May I have one of your words please?"<br/><br/>
+      &bull;&nbsp;&nbsp;The other student <em>must</em> say one word. <br/><br/>
+      &bull;&nbsp;&nbsp;You may also ask for the spelling.<br/><br/>
+      &bull;&nbsp;&nbsp;Add the new word in the text box and touch <b>enter</b>.<br/><br/>
+      &bull;&nbsp;&nbsp;The first person to enter all the words wins!!!<br/><br/>
+    </p>
+  	<ul data-role="listview" data-theme="b">
+	  <li><a href="#page26" onClick="randomStart();">Start Game</a></li>
+   	</ul>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">Main Menu</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page28">
+  <div data-role="header">
+    <h1>Game two</h1>
+  </div>
+  <div data-role="content">
+  	<ul data-role="listview" data-theme="b">
+	  <li><a href="#page26" onClick="randomStart();">Start Game</a></li>
+   	</ul>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">Main Menu</a></h4>
+  </div>
+</div>
+
+<div data-role="page" id="page29">
+  <div data-role="header">
+    <h1>Scrambler</h1>
+  </div>
+  <div data-role="content">
+    <p align="center">&nbsp;&nbsp;Scrambler Rules:
+    </p>
+   	<p align="justify">&bull;&nbsp;Scrambler is a one-player game.<br/><br/>
+      &bull;&nbsp;&nbsp;The letters in each word are scrambled (mixed up).<br/><br/>
+      &bull;&nbsp;&nbsp;You must enter the correct spelling of the word in the box.<br/><br/>
+      &bull;&nbsp;&nbsp;<b>hraic</b> is the word <b>chair</b>, for instance.<br/><br/>
+      &bull;&nbsp;&nbsp;You may also ask for the spelling.<br/><br/>
+      &bull;&nbsp;&nbsp;Add the new word in the text box and touch <b>enter</b>.<br/><br/>
+      &bull;&nbsp;&nbsp;The first person to enter all the words wins!!!<br/><br/>
+    </p>
+  	<ul data-role="listview" data-theme="b">
+	  <li><a href="#page30" onClick="randomStart();">Start Game</a></li>
+   	</ul>
+  </div>
+  <div data-role="footer">
+    <h4><a href="#page2">Main Menu</a></h4>
+  </div>
+</div>
+
+<div id="page30" data-role="page" data-theme="b">
+  <div data-role="header">
+    <h1>Scrambler</h1>
+  </div>
+  <div data-role="content" data-theme="b">  
+    <div align="center">
+      <table width="166" border="2" cellpadding="0">
+        <tr>
+          <th width="156" bgcolor="#FFFFFF" style="font-size: xx-large" scope="col">Score</th>
+        </tr>
+        <tr>
+          <th height="62" bgcolor="#FFFFFF" id="G3score" style="font-size: xx-large" scope="col"></th>
+        </tr>
+  	   </table>
+    </div>   
+    <div align="center">
+      <button onClick="scramble();" data-theme="b" data-inline=true>New Word</button>   
+      <table width="300" height="95" border="1" cellpadding="0" data-inline=true>
+        <tr>
+          <th width="317" bgcolor="#FFFFFF" id="scrambled" style="font-size: xx-large" scope="col"></th>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <div align="left">
+      	<input type=button onClick="G3hint4();"value=Hint&nbsp;4 data-inline=true />
+        <span id="G3H4" date-theme="b" data-inline=true border="1"></span><br/>
+        <input type=button onClick="G3hint3();"value=Hint&nbsp;3 data-inline=true />
+        <span id="G3H3" date-theme="b" data-inline=true border="1"></span><br/>
+        <input type=button onClick="G3hint2();"value=Hint&nbsp;2 data-inline=true />
+        <span id="G3H2" date-theme="b" data-inline=true border="1"></span><br/>
+        <input type=button onClick="G3hint1();" value=Hint&nbsp;1 data-inline=true />
+        <span id="G3H1" date-theme="b" data-inline=true border="1"></span><br/>
+    
+      <span id="G1prompt" style="font-size: xx-large">&nbsp;</span>
+  	    <input id="game3input"></input>
+  	  </div>
+  
+  	  <button onClick="G3scoring()" data-theme="b">Enter Word</button>
+    </div>
+    
+  
+  <div data-role="footer">
+    <h4><a href="#page" onClick="G3reset();">Main Menu</a></h4>
+  </div>
+</div>
