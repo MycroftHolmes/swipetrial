@@ -710,19 +710,14 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
             
         </blockquote>
       </div>
-
-      <ul data-theme="b" data-role="controlgroup">
-	    <li>
-	      <div class="menu" align="center"><a href="#page2">Review Vocabulary</a> </div>
-	    </li>
-        <li>
-          <div class="menu" align="center"><a href="#page24">Play Word Games</a> </div>
-        </li>
-        <li>
-          <div class="menu" align="center"><a href="#page0a" data-rel="dialog">Share this App!</a> </div>
-        </li>
-	  </ul>		
-	</div>
+       
+      <div data-role="controlgroup">
+      	<a href="#page2" data-role="button" data-theme="b">Review Vocabulary</a>
+        <a href="#page24" data-role="button" data-theme="b" >Play Word Games</a>
+        <a href="#page0a" data-role="button" data-rel="dialog" data-theme="b">Share this App!</a>
+      
+      </div>
+ 	</div>
 	<div data-role="footer">
 		<h4></h4>
 	</div>
@@ -747,12 +742,10 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
 
 <div id="page2" data-role="page" data-theme="b">
 	<div data-role="header" data-theme="a">
-    	<a href="#page" data-role="button" data-icon="home">Home</a>
 		<h1>Words to Know</h1>
-        <a href="#" data-role="button" data-icon="search">Search</a>
 	</div>
 	<div data-role="content">	
-		<ul data-role="listview" data-theme="b">
+		<ul data-role="listview" data-theme="b" data-filter="true" data-filter-placeholder="filter words">
 			<li><a href="#page3" id="lex0"></a> </li>
             <li><a href="#page4" id="lex1"></a></li>
             <li><a href="#page5" id="lex2"></a></li>
@@ -1860,7 +1853,6 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
         <input type=button onClick="G3hint1();" value=Hint&nbsp;1 data-inline=true />
         <span id="G3H1" date-theme="b" data-inline=true border="1"></span><br/>
     
-      <span id="G1prompt" style="font-size: xx-large">&nbsp;</span>
   	    <input id="game3input"></input>
   	  </div>
   
