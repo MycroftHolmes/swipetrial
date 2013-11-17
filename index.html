@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <title>TPP-Vocab-Template</title>
 <link href="jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
 <link href="jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
@@ -20,6 +20,14 @@ div.menu {
 	font-size: x-large;
 	text-align: center;
 }
+
+.g3border {
+	border:solid 1px black;
+	padding:7px;
+	background-color:white;
+	text-align:justify;
+}
+
 
 </style>
 <link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
@@ -41,44 +49,6 @@ a:active {
 }
 </style>
 <script src="jquery-1.6.4.min.js" type="text/javascript"></script>
-<script>
-$( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
-    var page = "#" + $( this ).attr( "id" ),
-        // Get the filename of the next page that we stored in the data-next attribute
-        next = $( this ).jqmData( "next" ),
-        // Get the filename of the previous page that we stored in the data-prev attribute
-        prev = $( this ).jqmData( "prev" );
-    // Check if we did set the data-next attribute
-    if ( next ) {
-        // Prefetch the next page
-        $.mobile.loadPage( next + ".html" );
-        // Navigate to next page on swipe left
-        $( document ).on( "swipeleft", page, function() {
-            $.mobile.changePage( next + ".html", { transition: "slide" });
-        });
-        // Navigate to next page when the "next" button is clicked
-        $( ".control .next", page ).on( "click", function() {
-            $.mobile.changePage( next + ".html", { transition: "slide" } );
-        });
-    }
-    // Disable the "next" button if there is no next page
-    else {
-        $( ".control .next", page ).addClass( "ui-disabled" );
-    }
-    // The same for the previous page (we set data-dom-cache="true" so there is no need to prefetch)
-    if ( prev ) {
-        $( document ).on( "swiperight", page, function() {
-            $.mobile.changePage( prev + ".html", { transition: "slide", reverse: true } );
-        });
-        $( ".control .prev", page ).on( "click", function() {
-            $.mobile.changePage( prev + ".html", { transition: "slide", reverse: true } );
-        });
-    }
-    else {
-        $( ".control .prev", page ).addClass( "ui-disabled" );
-    }
-});
-</script>
 <script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
 <script src="jQueryAssets/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="jQueryAssets/jquery-ui-1.9.2.progressbar.custom.min.js" type="text/javascript"></script>
@@ -705,8 +675,10 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
 
       <div align="center">
         <blockquote>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="CNA-Qcolour.png" alt="logo" width="250" height="335">
-            <br/>
+        
+<div align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="CNA-Qcolour.png" alt="logo" width="225" height="300">
+          <br/>
+        </div>
             
         </blockquote>
       </div>
@@ -780,16 +752,12 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   <div data-role="header" data-theme="b">
     <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
+  <div data-role="content" data-inline="true">
   	<span id="lex0a" style="font-size: x-large"></span><br/><br/>
   	<span id="hint0"></span>
     <br/>
-    <br/>
-    <span id="hint0a"></span>
-    <br/>
-    <br/>
+    <span id="hint0a"></span>&nbsp;&nbsp;&nbsp;
     <span class="translation" id="hint0b" style="font-size: xx-large"></span>
-    <br/>
     <br/>
     <a href="#page3a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="no text"></a>
   </div>
@@ -899,7 +867,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page6">
+<div data-role="page" id="page6" data-theme="d">
   <div data-role="header" data-theme="b">
     <h1 id="lex3a">Header</h1>
   </div>
@@ -938,8 +906,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page7">
-  <div data-role="header">
+<div data-role="page" id="page7" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex4a">Header</h1>
   </div>
   <div data-role="content">
@@ -952,7 +920,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint4b" class="translation"></span>
   </div>
   <a href="#page7a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -977,8 +945,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page8">
-  <div data-role="header">
+<div data-role="page" id="page8" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex5a">Header</h1>
   </div>
   <div data-role="content">
@@ -991,7 +959,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint5b" class="translation"></span>
   </div>
    <a href="#page8a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1016,8 +984,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page9">
-  <div data-role="header">
+<div data-role="page" id="page9" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex6a">Header</h1>
   </div>
   <div data-role="content">
@@ -1030,7 +998,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint6b" class="translation"></span>
   </div>
    <a href="#page9a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1055,8 +1023,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page10">
-  <div data-role="header">
+<div data-role="page" id="page10" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex7a">Header</h1>
   </div>
   <div data-role="content">
@@ -1069,7 +1037,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint7b" class="translation"></span>
   </div>
    <a href="#page10a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1094,8 +1062,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page11">
-  <div data-role="header">
+<div data-role="page" id="page11" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex8a">Header</h1>
   </div>
   <div data-role="content">
@@ -1108,7 +1076,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint8b" class="translation"></span>
   </div>
   <a href="#page11a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1133,8 +1101,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page12">
-  <div data-role="header">
+<div data-role="page" id="page12" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex9a">Header</h1>
   </div>
   <div data-role="content">
@@ -1147,7 +1115,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint9b" class="translation"></span>
   </div>
   <a href="#page12a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1172,8 +1140,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page13">
-  <div data-role="header">
+<div data-role="page" id="page13" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex10a">Header</h1>
   </div>
   <div data-role="content">
@@ -1186,7 +1154,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint10b" class="translation"></span>
   </div>
   <a href="#page13a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1211,8 +1179,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page14">
-  <div data-role="header">
+<div data-role="page" id="page14" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex11a">Header</h1>
   </div>
   <div data-role="content">
@@ -1225,7 +1193,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint11b" class="translation"></span>
   </div>
   <a href="#page14a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1250,8 +1218,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page15">
-  <div data-role="header">
+<div data-role="page" id="page15" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex12a">Header</h1>
   </div>
   <div data-role="content">
@@ -1264,7 +1232,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint12b" class="translation"></span>
   </div>
   <a href="#page15a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1289,8 +1257,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page16">
-  <div data-role="header">
+<div data-role="page" id="page16" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex13a">Header</h1>
   </div>
   <div data-role="content">
@@ -1303,7 +1271,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint13b" class="translation"></span>
   </div>
   <a href="#page16a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1328,8 +1296,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page17">
-  <div data-role="header">
+<div data-role="page" id="page17" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex14a">Header</h1>
   </div>
   <div data-role="content">
@@ -1342,7 +1310,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint14b" class="translation"></span>
   </div>
   <a href="#page17a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1367,8 +1335,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page18">
-  <div data-role="header">
+<div data-role="page" id="page18" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex15a">Header</h1>
   </div>
   <div data-role="content">
@@ -1381,7 +1349,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint15b" class="translation"></span>
   </div>
   <a href="#page18a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1406,8 +1374,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page19">
-  <div data-role="header">
+<div data-role="page" id="page19" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex16a">Header</h1>
   </div>
   <div data-role="content">
@@ -1420,7 +1388,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint16b" class="translation"></span>
   </div>
   <a href="#page9a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1445,8 +1413,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page20">
-  <div data-role="header">
+<div data-role="page" id="page20" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex17a">Header</h1>
   </div>
   <div data-role="content">
@@ -1459,7 +1427,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint17b" class="translation"></span>
   </div>
   <a href="#page20a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1484,8 +1452,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page21">
-  <div data-role="header">
+<div data-role="page" id="page21" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex18a">Header</h1>
   </div>
   <div data-role="content">
@@ -1498,7 +1466,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint18b" class="translation"></span>
   </div>
   <a href="#page21a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1523,8 +1491,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page22">
-  <div data-role="header">
+<div data-role="page" id="page22" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex19a">Header</h1>
   </div>
   <div data-role="content">
@@ -1539,7 +1507,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <a href="#page22a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
     <br/>
   <img src="../index_Resources/arrest.jpg" width="360" height="470"  alt=""/> </div>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1564,8 +1532,8 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page23">
-  <div data-role="header">
+<div data-role="page" id="page23" data-theme="d">
+  <div data-role="header" data-theme="b">
     <h1 id="lex20a">Header</h1>
   </div>
   <div data-role="content">
@@ -1578,7 +1546,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <span id="hint20b" class="translation"></span>
   </div>
   <a href="#page23a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer">
+  <div data-role="footer" data-theme="b">
     <h4><a href="#page2">back</a></h4>
   </div>
 </div>
@@ -1845,20 +1813,19 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <div>
       <div align="left" data-role="controlgroup">
       	<input type=button onClick="G3hint4();"value=Hint&nbsp;4 data-inline=true />
-        <span id="G3H4" date-theme="b" data-inline=true border="1"></span><br/>
+        <span class="g3border" id="G3H4" date-theme="b" data-inline=true></span><br/>
         <input type=button onClick="G3hint3();"value=Hint&nbsp;3 data-inline=true />
-        <span id="G3H3" date-theme="b" data-inline=true border="1"></span><br/>
+        <span class="g3border" id="G3H3" date-theme="b" data-inline=true></span><br/>
         <input type=button onClick="G3hint2();"value=Hint&nbsp;2 data-inline=true />
-        <span id="G3H2" date-theme="b" data-inline=true border="1"></span><br/>
+        <span class="g3border" id="G3H2" date-theme="b" data-inline=true></span><br/>
         <input type=button onClick="G3hint1();" value=Hint&nbsp;1 data-inline=true />
-        <span id="G3H1" date-theme="b" data-inline=true border="1"></span><br/>
-    
-  	    <input id="game3input"></input>
-  	  </div>
+        <span class="g3border" id="G3H1" date-theme="b" data-inline=true border="1"></span><br/>
+    	<br/>
+  	    <input id="game3input" data-type="search"></input>
   
   	  <button onClick="G3scoring()" data-theme="b">Enter Word</button>
     </div>
-    
+    </div>
   <div data-role="footer">
     <h4><a href="#page" onClick="G3reset();">Main Menu</a></h4>
   </div>
