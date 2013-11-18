@@ -676,7 +676,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
       <div align="center">
         <blockquote>
         
-<div align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="CNA-Qcolour.png" alt="logo" width="225" height="300">
+<div align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="CNA-Qcolour.png" alt="logo" width="225" height="300">
           <br/>
         </div>
             
@@ -717,7 +717,7 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
 		<h1>Words to Know</h1>
 	</div>
 	<div data-role="content">	
-		<ul data-role="listview" data-theme="b" data-filter="true" data-filter-placeholder="filter words">
+		<ul data-filter="true" data-filter-placeholder="filter words" data-role="listview" data-theme="b">
 			<li><a href="#page3" id="lex0"></a> </li>
             <li><a href="#page4" id="lex1"></a></li>
             <li><a href="#page5" id="lex2"></a></li>
@@ -753,18 +753,40 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <h1>TPP-GL-106 Unit 6</h1>
   </div>
   <div data-role="content" data-inline="true">
-  	<span id="lex0a" style="font-size: x-large"></span><br/><br/>
-  	<span id="hint0"></span>
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<span id="lex0a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page3a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="d"></a>
+        </div>
+	</div>
+	<span id="hint0"></span>
     <br/>
-    <span id="hint0a"></span>&nbsp;&nbsp;&nbsp;
+    <br/>
+    <span id="hint0a"></span><br/>
+    <br/>
     <span class="translation" id="hint0b" style="font-size: xx-large"></span>
-    <br/>
-    <a href="#page3a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="no text"></a>
   </div>
   	
   <img src="0.jpg" width="270" height="282"  alt="pic1"/>
+  <br/>
+  <br/>
 <div data-role="footer" data-theme="b" >
-    <a href="#page" data-role="button" data-icon="home" data-iconpos="notext"></a>
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<a href="#page2" data-icon="carat-1-w" data-iconpos="no text" data-inline="true" data-role="button"></a>
+        </div>
+        <div class="ui-block-b">
+        	<a href="#page" data-role="button" data-icon="home" data-iconpos="notext"></a>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page4" data-role="button" data-inline="true" data-icon="carat-1-e" data-iconpos="no text"></a>
+        </div>
+	</div>
   </div>
 </div>
 
