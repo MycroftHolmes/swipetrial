@@ -21,14 +21,6 @@ div.menu {
 	text-align: center;
 }
 
-.g3border {
-	border:solid 1px black;
-	padding:7px;
-	background-color:white;
-	text-align:justify;
-}
-
-
 </style>
 <link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
 <link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
@@ -758,11 +750,13 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
         	<span></span>
         </div>
         <div class="ui-block-b">
+        	<br/>
         	<span id="lex0a" style="font-size: x-large"></span>
         </div>
         <div class="ui-grid-c">
         	<a href="#page3a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="d"></a>
         </div>
+    <br/>
 	</div>
 	<span id="hint0"></span>
     <br/>
@@ -775,16 +769,16 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   <img src="0.jpg" width="270" height="282"  alt="pic1"/>
   <br/>
   <br/>
-<div data-role="footer" data-theme="b" >
+<div data-role="footer" class="ui-bar" data-theme="b" >
 	<div class="ui-grid-b">
     	<div class="ui-block-a">
-        	<a href="#page2" data-icon="carat-1-w" data-iconpos="no text" data-inline="true" data-role="button"></a>
+        	<a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
         </div>
         <div class="ui-block-b">
-        	<a href="#page" data-role="button" data-icon="home" data-iconpos="notext"></a>
+        	<a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
         </div>
         <div class="ui-grid-c">
-        	<a href="#page4" data-role="button" data-inline="true" data-icon="carat-1-e" data-iconpos="no text"></a>
+        	<a href="#page4" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
         </div>
 	</div>
   </div>
@@ -1599,10 +1593,10 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
   <div data-role="content">
   	<ul data-role="listview" data-theme="b">
-    	<li data-role="divider" data-theme="d">Multi-player Games</li>
+    	<li class="listdivider" data-role="divider" data-theme="d">Multi-player Games</li>
   		<li><a href="#page25">Word Finder</a></li>
     	<li><a href="#page27">Game 2</a></li>
-        <li data-role="divider" data-theme="d">One-Player Games</li>
+        <li class="listdivider" data-role="divider" data-theme="d">One-Player Games</li>
        <li><a href="#page29">Scrambler</a></li>
    	</ul>
   </div>
@@ -1835,13 +1829,13 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
     <div>
       <div align="left" data-role="controlgroup">
       	<input type=button onClick="G3hint4();"value=Hint&nbsp;4 data-inline=true />
-        <span class="g3border" id="G3H4" date-theme="b" data-inline=true></span><br/>
+        <span id="G3H4" date-theme="b" data-inline=true></span><br/>
         <input type=button onClick="G3hint3();"value=Hint&nbsp;3 data-inline=true />
-        <span class="g3border" id="G3H3" date-theme="b" data-inline=true></span><br/>
+        <span id="G3H3"></span><br/>
         <input type=button onClick="G3hint2();"value=Hint&nbsp;2 data-inline=true />
-        <span class="g3border" id="G3H2" date-theme="b" data-inline=true></span><br/>
+        <span id="G3H2" date-theme="b" data-inline=true></span><br/>
         <input type=button onClick="G3hint1();" value=Hint&nbsp;1 data-inline=true />
-        <span class="g3border" id="G3H1" date-theme="b" data-inline=true border="1"></span><br/>
+        <span id="G3H1" date-theme="b" data-inline=true border="1"></span><br/>
     	<br/>
   	    <input id="game3input" data-type="search"></input>
   
