@@ -11,6 +11,7 @@ body {
 	font-weight: bold;
 	font-size: large;
 	text-align: center;
+	background-image: url();
 }
 
 div.menu {
@@ -38,6 +39,11 @@ a:hover {
 a:active {
 	text-decoration: none;
 	color: #FFF;
+}
+.course {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: xx-large;
+	color: #0069AA;
 }
 </style>
 <script src="jquery-1.6.4.min.js" type="text/javascript"></script>
@@ -203,9 +209,47 @@ function please()
 	
 	document.getElementById("lex0z").innerHTML = newWord[0];
 	document.getElementById("lex1z").innerHTML = newWord[1];
+	document.getElementById("lex2z").innerHTML = newWord[2];
+	document.getElementById("lex3z").innerHTML = newWord[3];
+	document.getElementById("lex4z").innerHTML = newWord[4];
+	document.getElementById("lex5z").innerHTML = newWord[5];
+	document.getElementById("lex6z").innerHTML = newWord[6];
+	document.getElementById("lex7z").innerHTML = newWord[7];
+	document.getElementById("lex8z").innerHTML = newWord[8];
+	document.getElementById("lex9z").innerHTML = newWord[9];
+	document.getElementById("lex10z").innerHTML = newWord[10];
+	document.getElementById("lex11z").innerHTML = newWord[11];
+	document.getElementById("lex12z").innerHTML = newWord[12];
+	document.getElementById("lex13z").innerHTML = newWord[13];
+	document.getElementById("lex14z").innerHTML = newWord[14];
+	document.getElementById("lex15z").innerHTML = newWord[15];
+	document.getElementById("lex16z").innerHTML = newWord[16];
+	document.getElementById("lex17z").innerHTML = newWord[17];
+	document.getElementById("lex18z").innerHTML = newWord[18];
+	document.getElementById("lex19z").innerHTML = newWord[19];
+	document.getElementById("lex20z").innerHTML = newWord[20];
 	
 	document.getElementById("pos0").innerHTML = pos[0];
 	document.getElementById("pos1").innerHTML = pos[1];
+	document.getElementById("pos2").innerHTML = pos[2];
+	document.getElementById("pos3").innerHTML = pos[3];
+	document.getElementById("pos4").innerHTML = pos[4];
+	document.getElementById("pos5").innerHTML = pos[5];
+	document.getElementById("pos6").innerHTML = pos[6];
+	document.getElementById("pos7").innerHTML = pos[7];
+	document.getElementById("pos8").innerHTML = pos[8];
+	document.getElementById("pos9").innerHTML = pos[9];
+	document.getElementById("pos10").innerHTML = pos[10];
+	document.getElementById("pos11").innerHTML = pos[11];
+	document.getElementById("pos12").innerHTML = pos[12];
+	document.getElementById("pos13").innerHTML = pos[13];
+	document.getElementById("pos14").innerHTML = pos[14];
+	document.getElementById("pos15").innerHTML = pos[15];
+	document.getElementById("pos16").innerHTML = pos[16];
+	document.getElementById("pos17").innerHTML = pos[17];
+	document.getElementById("pos18").innerHTML = pos[18];
+	document.getElementById("pos19").innerHTML = pos[19];
+	document.getElementById("pos20").innerHTML = pos[20];
 	
 	document.getElementById("def0").innerHTML = def[0];
 	document.getElementById("def1").innerHTML = def[1];
@@ -661,17 +705,21 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
 
 <div data-role="page" id="page">
 	<div data-role="header" data-theme="a">
-		<h1 align="center">TPP-GL-106-U6</h1>
+		<h1 align="center"></h1>
 	</div>
 	<div data-role="content" data-theme="d">
 
       <div align="center">
         <blockquote>
         
-<div align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="CNA-Qcolour.png" alt="logo" width="225" height="300">
-          <br/>
+<div align="center"><img src="LSAC.png.png" width="400" height="170" alt="LSAlogo">
+        
         </div>
-            
+        <br/>
+        <span class="course">TPP-GL-106</span><br/>
+        <span class="course">Unit 6</span>
+        <br/>
+        <br/>
         </blockquote>
       </div>
        
@@ -1016,22 +1064,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page7" data-theme="d">
+<div class="pages" id="page7" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex4a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint4"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex4a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page7a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint4a"></span>
-    <br/>
-    <br/>
-    <span id="hint4b" class="translation"></span>
+	</div>
+    <div align="center"><img src="4.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint4"></span>
+      <br/>
+      <br/>
+      <span id="hint4a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint4b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page7a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page8" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1055,22 +1133,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page8" data-theme="d">
+<div class="pages" id="page8" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex5a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint5"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex5a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page8a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint5a"></span>
-    <br/>
-    <br/>
-    <span id="hint5b" class="translation"></span>
+	</div>
+    <div align="center"><img src="5.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint5"></span>
+      <br/>
+      <br/>
+      <span id="hint5a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint5b" style="font-size: xx-large"></span></span></div>
   </div>
-   <a href="#page8a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page9" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1094,22 +1202,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page9" data-theme="d">
+<div class="pages" id="page9" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex6a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint6"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex6a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page9a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint6a"></span>
-    <br/>
-    <br/>
-    <span id="hint6b" class="translation"></span>
+	</div>
+    <div align="center"><img src="6.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint6"></span>
+      <br/>
+      <br/>
+      <span id="hint6a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint6b" style="font-size: xx-large"></span></span></div>
   </div>
-   <a href="#page9a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page10" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1133,22 +1271,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page10" data-theme="d">
+<div class="pages" id="page10" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex7a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint7"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex7a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page10a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint7a"></span>
-    <br/>
-    <br/>
-    <span id="hint7b" class="translation"></span>
+	</div>
+    <div align="center"><img src="7.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint7"></span>
+      <br/>
+      <br/>
+      <span id="hint7a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint7b" style="font-size: xx-large"></span></span></div>
   </div>
-   <a href="#page10a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page11" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1172,22 +1340,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page11" data-theme="d">
+<div class="pages" id="page11" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex8a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint8"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex8a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page11a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint8a"></span>
-    <br/>
-    <br/>
-    <span id="hint8b" class="translation"></span>
+	</div>
+    <div align="center"><img src="8.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint8"></span>
+      <br/>
+      <br/>
+      <span id="hint8a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint8b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page11a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page12" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1211,22 +1409,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page12" data-theme="d">
+<div class="pages" id="page12" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex9a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint9"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex9a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page11a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint9a"></span>
-    <br/>
-    <br/>
-    <span id="hint9b" class="translation"></span>
+	</div>
+    <div align="center"><img src="9.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint9"></span>
+      <br/>
+      <br/>
+      <span id="hint9a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint9b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page12a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page13" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1250,22 +1478,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page13" data-theme="d">
+<div class="pages" id="page13" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex10a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint10"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex10a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page11a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint10a"></span>
-    <br/>
-    <br/>
-    <span id="hint10b" class="translation"></span>
+	</div>
+    <div align="center"><img src="10.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint10"></span>
+      <br/>
+      <br/>
+      <span id="hint10a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint10b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page13a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page14" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1289,22 +1547,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page14" data-theme="d">
+<div class="pages" id="page14" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex11a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint11"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex11a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page14a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint11a"></span>
-    <br/>
-    <br/>
-    <span id="hint11b" class="translation"></span>
+	</div>
+    <div align="center"><img src="11.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint11"></span>
+      <br/>
+      <br/>
+      <span id="hint11a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint11b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page14a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page15" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1328,22 +1616,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page15" data-theme="d">
+<div class="pages" id="page15" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex12a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint12"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex12a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page12a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint12a"></span>
-    <br/>
-    <br/>
-    <span id="hint12b" class="translation"></span>
+	</div>
+    <div align="center"><img src="12.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint12"></span>
+      <br/>
+      <br/>
+      <span id="hint12a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint12b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page15a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page16" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1367,22 +1685,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page16" data-theme="d">
+<div class="pages" id="page16" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex13a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint13"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex13a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page16a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint13a"></span>
-    <br/>
-    <br/>
-    <span id="hint13b" class="translation"></span>
+	</div>
+    <div align="center"><img src="13.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint13"></span>
+      <br/>
+      <br/>
+      <span id="hint13a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint13b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page16a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page17" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1406,22 +1754,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page17" data-theme="d">
+<div class="pages" id="page17" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex14a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint14"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex14a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page17a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint14a"></span>
-    <br/>
-    <br/>
-    <span id="hint14b" class="translation"></span>
+	</div>
+    <div align="center"><img src="14.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint14"></span>
+      <br/>
+      <br/>
+      <span id="hint14a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint14b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page17a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page18" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1445,22 +1823,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page18" data-theme="d">
+<div class="pages" id="page18" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex15a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint15"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex15a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page18a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint15a"></span>
-    <br/>
-    <br/>
-    <span id="hint15b" class="translation"></span>
+	</div>
+    <div align="center"><img src="15.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint15"></span>
+      <br/>
+      <br/>
+      <span id="hint15a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint15b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page18a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page19" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1484,22 +1892,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page19" data-theme="d">
+<div class="pages" id="page19" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex16a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint16"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex16a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page19a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint16a"></span>
-    <br/>
-    <br/>
-    <span id="hint16b" class="translation"></span>
+	</div>
+    <div align="center"><img src="16.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint16"></span>
+      <br/>
+      <br/>
+      <span id="hint16a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint16b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page9a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page20" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1523,22 +1961,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page20" data-theme="d">
+<div class="pages" id="page20" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex17a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint17"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex17a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page20a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint17a"></span>
-    <br/>
-    <br/>
-    <span id="hint17b" class="translation"></span>
+	</div>
+    <div align="center"><img src="17.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint17"></span>
+      <br/>
+      <br/>
+      <span id="hint17a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint17b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page20a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page21" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1562,22 +2030,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page21" data-theme="d">
+<div class="pages" id="page21" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex18a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint18"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex18a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page21a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint18a"></span>
-    <br/>
-    <br/>
-    <span id="hint18b" class="translation"></span>
+	</div>
+    <div align="center"><img src="18.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint18"></span>
+      <br/>
+      <br/>
+      <span id="hint18a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint18b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page21a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page22" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1601,24 +2099,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page22" data-theme="d">
+<div class="pages" id="page22" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex19a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint19"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex19a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page22a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint19a"></span>
-    <br/>
-    <br/>
-    <span id="hint19b" class="translation"></span>
-    <br/>
-    <a href="#page22a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-    <br/>
-  <img src="../index_Resources/arrest.jpg" width="360" height="470"  alt=""/> </div>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+	</div>
+    <div align="center"><img src="19.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint19"></span>
+      <br/>
+      <br/>
+      <span id="hint19a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint19b" style="font-size: xx-large"></span></span></div>
+  </div>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page23" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1642,22 +2168,52 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
   </div>
 </div>
 
-<div data-role="page" id="page23" data-theme="d">
+<div class="pages" id="page23" data-role="page" data-theme="d">
   <div data-role="header" data-theme="b">
-    <h1 id="lex20a">Header</h1>
+    <h1>TPP-GL-106 Unit 6</h1>
   </div>
-  <div data-role="content">
-  	<span id="hint20"></span>
+  <div data-role="content" data-inline="true">
+    <div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<span></span>
+        </div>
+        <div class="ui-block-b">
+        	<br/>
+        	<span id="lex20a" style="font-size: x-large"></span>
+        </div>
+        <div class="ui-grid-c">
+        	<a href="#page23a" data-icon="info" data-iconpos="no text" data-inline="true" data-rel="dialog" data-role="button" data-theme="c"></a>
+        </div>
     <br/>
-    <br/>
-    <span id="hint20a"></span>
-    <br/>
-    <br/>
-    <span id="hint20b" class="translation"></span>
+	</div>
+    <div align="center"><img src="20.jpg" width="270" height="282"  alt="pic1"/>
+      <br/>
+      <br/>
+      <span id="hint20"></span>
+      <br/>
+      <br/>
+      <span id="hint20a"></span><br/>
+      <br/>
+      <span>Arabic:&nbsp;&nbsp;<span class="translation" id="hint20b" style="font-size: xx-large"></span></span></div>
   </div>
-  <a href="#page23a" data-role="button" data-inline="true" data-rel="dialog" data-icon="info" data-iconpos="left">More info</a>
-  <div data-role="footer" data-theme="b">
-    <h4><a href="#page2">back</a></h4>
+  	
+  <br/>
+  <br/>
+<div data-role="footer" class="ui-bar" data-theme="b" >
+	<div class="ui-grid-b">
+    	<div class="ui-block-a">
+        	<div align="center"><a href="#page2" data-icon="carat-1-w" data-iconpos="left" data-inline="true" data-role="button">Back</a>
+      	  </div>
+    	</div>
+        <div class="ui-block-b">
+        	<div align="center"><a href="#page" data-icon="home" data-iconpos="notext" data-role="button" data-theme="b"></a>
+      	  </div>
+        </div>
+        <div class="ui-grid-c">
+        	<div align="center"><a href="#page24" data-icon="carat-1-e" data-iconpos="right" data-inline="true" data-role="button">Next</a>
+      	  </div>
+        </div>
+	</div>
   </div>
 </div>
 
@@ -1910,19 +2466,21 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
         <tr>
           <th height="62" bgcolor="#FFFFFF" id="G3score" style="font-size: xx-large" scope="col"></th>
         </tr>
-  	   </table>
-    </div>   
-    <div align="center">
-      <button onClick="scramble();" data-theme="b" data-inline=true>New Word</button>   
-      <table width="300" height="95" border="1" cellpadding="0" data-inline=true>
-        <tr>
-          <th width="317" bgcolor="#FFFFFF" id="scrambled" style="font-size: xx-large" scope="col"></th>
-        </tr>
       </table>
+    </div>   
+    <div data-role="controlgroup" data-type="horizontal">
+      <div align="center">
+        <table width="225" height="95" border="1" cellpadding="0" data-inline=true>
+          <tr>
+            <th width="225" bgcolor="#FFFFFF" id="scrambled" style="font-size: xx-large" scope="col"></th>
+          </tr>
+        </table>
+      </div>
+      <button onClick="scramble();" data-theme="b" data-inline=true>New Word</button>
     </div>
     <div>
       <div align="left" data-role="controlgroup">
-      	<input type=button onClick="G3hint4();"value=Hint&nbsp;4 data-inline=true />
+      	<div align="left"><input type=button onClick="G3hint4();"value=Hint&nbsp;4 data-inline=true />
         <span id="G3H4" date-theme="b" data-inline=true></span><br/>
         <input type=button onClick="G3hint3();"value=Hint&nbsp;3 data-inline=true />
         <span id="G3H3"></span><br/>
@@ -1932,9 +2490,13 @@ else if (a == newWord[randomNumber] && g3counter ==4) {
         <span id="G3H1" date-theme="b" data-inline=true border="1"></span><br/>
     	<br/>
   	    <input id="game3input" data-type="search"></input>
-  
-  	  <button onClick="G3scoring()" data-theme="b">Enter Word</button>
-    </div>
+  		</div>
+        <div>
+  	      <div align="center">
+  	        <button onClick="G3scoring()" data-inline=true data-theme="b">Enter Word</button>
+          </div>
+      	</div>
+      </div>
     </div>
   <div data-role="footer">
     <h4><a href="#page" onClick="G3reset();">Main Menu</a></h4>
