@@ -1,0 +1,73 @@
+#page56 {
+	background: url('letters.jpg')	
+}
+
+#page58 {
+	background: url('letters.jpg')	
+}
+
+#page60 {
+	background: url('metal.jpg')	
+}
+
+#page54 {
+	background: url('metal.jpg')	
+}
+
+#page54b {
+	background: url('metal.jpg')	
+}
+
+.highscore {
+
+	color: white;
+}
+
+.highscore2 {
+
+	color: white;
+}
+
+
+#g5pic {
+
+	box-shadow: 5px 5px 10px #000000;
+
+}
+
+#g2pic {
+
+	box-shadow: 5px 5px 10px #000000;
+
+}
+
+.g2trans {
+
+  background-color:#0069AA;
+  color: white;
+  border:1px solid black;
+  opacity:0.8;
+  box-shadow: 5px 5px 10px #000000;
+
+}
+
+.largebuttons { 
+
+ height: 38px; font-size: 16px;
+ 
+ }
+ 
+ .g2listen {
+	 
+	font-size:10px;	 
+	 
+ }
+ 
+ .pic {
+ 	
+	box-shadow: 5px 5px 10px #000000;
+ 
+ }
+
+
+
